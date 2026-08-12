@@ -25,5 +25,5 @@ export const SUGGESTIONS = [
 export const INITIAL_MESSAGE = {
   role: "assistant",
   content:
-    "Olá, sou a assistente DF Muses!\nPosso te ajudar de duas formas:\n• Informe os ingredientes que você tem em casa e sugiro pratos para preparar\n• Informe um alimento e a quantidade (ex: 200g de frango) e indico substituições equivalentes\nComo posso te ajudar hoje?",
+    "Olá, sou a assistente DF Nutri!\nPosso te ajudar de duas formas:\n• Informe os ingredientes que você tem em casa e sugiro pratos para preparar\n• Informe um alimento e a quantidade (ex: 200g de frango) e indico substituições equivalentes\nComo posso te ajudar hoje?",
 };

@@ -79,7 +79,7 @@ export default function Calc() {
             ←
           </button>
           <div style={{ width: "44px", height: "44px", borderRadius: "12px", overflow: "hidden", flexShrink: 0 }}>
-            <img src={logo} alt="DF Muses" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src={logo} alt="DF Nutri" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div>
             <div style={{ color: "#ffffff", fontSize: FONT_SIZE.xl, fontWeight: "bold" }}>Calculadora</div>

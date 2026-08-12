@@ -189,7 +189,7 @@ export default function NutritionChat() {
           >
             <img
               src={logo}
-              alt="DF Muses"
+              alt="DF Nutri"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               onError={(e) => {
                 e.target.style.display = "none";
@@ -199,7 +199,7 @@ export default function NutritionChat() {
           </div>
           <div>
             <div style={{ color: "#ffffff", fontSize: FONT_SIZE.xl, fontWeight: "bold", letterSpacing: "0.3px" }}>
-              DF Muses
+              DF Nutri
             </div>
             <div style={{ color: "#ddd6fe", fontSize: FONT_SIZE.sm, marginTop: "2px" }}>
               Sugestões de pratos e substituições
