@@ -135,12 +135,16 @@ export default function NutritionChat() {
           padding: 10px 12px;
           color: #1a0a2e;
           font-size: 16px;
+          font-weight: 500;
           font-family: inherit;
           resize: none;
           line-height: 1.4;
           max-height: 100px;
           overflow-y: auto;
           min-height: 44px;
+        }
+        .suggestion-btn {
+          font-weight: 600;
         }
         @media (max-width: 640px) {
           .chat-wrapper { padding: 0; }

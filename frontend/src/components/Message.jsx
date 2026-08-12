@@ -37,7 +37,9 @@ export default function Message({ msg }) {
             : "#f0ebff",
           color: isUser ? "#ffffff" : "#1a0a2e",
           fontSize: FONT_SIZE.base,
-          lineHeight: "1.3",
+          fontWeight: 600,
+          lineHeight: "1.35",
+          letterSpacing: "0.01em",
           boxShadow: isUser
             ? "0 2px 12px rgba(106,63,171,0.3)"
             : "0 2px 8px rgba(106,63,171,0.08)",
