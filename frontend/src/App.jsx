@@ -117,6 +117,10 @@ export default function NutritionChat() {
           background: #fdfbff;
           flex-shrink: 0;
         }
+        .suggestion-btn {
+          font-weight: 500;
+          max-width: 100%;
+        }
         .chat-input-area {
           padding: 12px 16px;
           border-top: 1px solid #e0d0f8;
@@ -143,9 +147,6 @@ export default function NutritionChat() {
           overflow-y: auto;
           min-height: 44px;
         }
-        .suggestion-btn {
-          font-weight: 500;
-        }
         @media (max-width: 640px) {
           .chat-wrapper { padding: 0; }
           .chat-card {
@@ -157,7 +158,26 @@ export default function NutritionChat() {
             box-shadow: none;
           }
           .chat-header { padding: 12px 16px; }
+          .chat-messages { padding: 12px 12px 4px; }
           .chat-input-area { padding: 10px 12px 14px; }
+          .chat-suggestions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            padding: 0 12px 10px;
+          }
+          .suggestion-btn {
+            width: 100% !important;
+            max-width: none !important;
+            box-sizing: border-box;
+            padding: 10px 10px !important;
+            border-radius: 12px !important;
+            font-size: 12px !important;
+            line-height: 1.3 !important;
+            text-align: left;
+            white-space: normal !important;
+            min-height: 44px;
+          }
         }
       `}</style>
 
