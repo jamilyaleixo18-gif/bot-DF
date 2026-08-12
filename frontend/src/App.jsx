@@ -134,17 +134,17 @@ export default function NutritionChat() {
           border-radius: 12px;
           padding: 10px 12px;
           color: #1a0a2e;
-          font-size: 16px;
-          font-weight: 500;
+          font-size: 15px;
+          font-weight: 400;
           font-family: inherit;
           resize: none;
-          line-height: 1.4;
+          line-height: 1.45;
           max-height: 100px;
           overflow-y: auto;
           min-height: 44px;
         }
         .suggestion-btn {
-          font-weight: 600;
+          font-weight: 500;
         }
         @media (max-width: 640px) {
           .chat-wrapper { padding: 0; }
@@ -198,10 +198,10 @@ export default function NutritionChat() {
             />
           </div>
           <div>
-            <div style={{ color: "#ffffff", fontSize: FONT_SIZE.xl, fontWeight: "bold", letterSpacing: "0.3px" }}>
+            <div style={{ color: "#ffffff", fontSize: FONT_SIZE.xl, fontWeight: 600, letterSpacing: "0.2px" }}>
               DF Nutri
             </div>
-            <div style={{ color: "#ddd6fe", fontSize: FONT_SIZE.sm, marginTop: "2px" }}>
+            <div style={{ color: "#ddd6fe", fontSize: FONT_SIZE.sm, fontWeight: 400, marginTop: "2px" }}>
               Sugestões de pratos e substituições
             </div>
           </div>

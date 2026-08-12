@@ -1,10 +1,10 @@
-export const FONT_FAMILY = "'Exo 2', system-ui, sans-serif";
+export const FONT_FAMILY = "Manrope, system-ui, sans-serif";
 
 export const FONT_SIZE = {
-  sm: "15px",
-  base: "17px",
-  lg: "20px",
-  xl: "22px",
+  sm: "14px",
+  base: "15px",
+  lg: "18px",
+  xl: "20px",
 };
 
 export const BRAND = {
