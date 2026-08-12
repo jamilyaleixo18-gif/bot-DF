@@ -1,4 +1,4 @@
-export const FONT_FAMILY = "'Cormorant Garamond', Georgia, serif";
+export const FONT_FAMILY = "'Exo 2', system-ui, sans-serif";
 
 export const FONT_SIZE = {
   sm: "15px",
