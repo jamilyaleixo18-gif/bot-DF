@@ -25,7 +25,7 @@ export default function NutritionChat() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3001/api/chat", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: newMessages }),
@@ -53,17 +53,7 @@ export default function NutritionChat() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#ffffff",
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        fontFamily: FONT_FAMILY,
-        padding: "12px 20px 20px",
-      }}
-    >
+    <div className="chat-wrapper">
       <style>{`
         @keyframes fadeSlide {
           from { opacity: 0; transform: translateY(8px); }
@@ -73,6 +63,7 @@ export default function NutritionChat() {
           0%, 60%, 100% { transform: translateY(0); }
           30% { transform: translateY(-6px); }
         }
+        *, *::before, *::after { box-sizing: border-box; }
         textarea::placeholder { color: #a78bca; }
         textarea:focus { outline: none; }
         ::-webkit-scrollbar { width: 5px; }
@@ -81,27 +72,95 @@ export default function NutritionChat() {
         .suggestion-btn:hover { background: #ede5ff !important; border-color: ${BRAND.primary} !important; color: ${BRAND.primaryDark} !important; }
         .send-btn:hover { transform: scale(1.05); }
         .send-btn:active { transform: scale(0.97); }
+
+        .chat-wrapper {
+          min-height: 100vh;
+          min-height: 100dvh;
+          background: #ffffff;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          font-family: ${FONT_FAMILY};
+          padding: 12px 20px 20px;
+        }
+        .chat-card {
+          width: 100%;
+          max-width: 680px;
+          height: 90vh;
+          height: 90dvh;
+          max-height: 780px;
+          display: flex;
+          flex-direction: column;
+          background: #ffffff;
+          border-radius: 20px;
+          border: 1px solid #e0d0f8;
+          overflow: hidden;
+          box-shadow: 0 20px 60px rgba(106,63,171,0.12), 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .chat-header {
+          padding: 16px 20px;
+          flex-shrink: 0;
+        }
+        .chat-messages {
+          flex: 1;
+          overflow-y: auto;
+          padding: 14px 16px 6px;
+          background: #fdfbff;
+          min-height: 0;
+        }
+        .chat-suggestions {
+          padding: 0 16px 10px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          background: #fdfbff;
+          flex-shrink: 0;
+        }
+        .chat-input-area {
+          padding: 12px 16px;
+          border-top: 1px solid #e0d0f8;
+          background: #ffffff;
+          display: flex;
+          gap: 10px;
+          align-items: flex-end;
+          flex-shrink: 0;
+        }
+        .chat-textarea {
+          flex: 1;
+          min-width: 0;
+          background: #f5f0ff;
+          border: 1px solid #ddd6fe;
+          border-radius: 12px;
+          padding: 10px 12px;
+          color: #1a0a2e;
+          font-size: 16px;
+          font-family: inherit;
+          resize: none;
+          line-height: 1.4;
+          max-height: 100px;
+          overflow-y: auto;
+          min-height: 44px;
+        }
+        @media (max-width: 640px) {
+          .chat-wrapper { padding: 0; }
+          .chat-card {
+            height: 100vh;
+            height: 100dvh;
+            max-height: none;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+          }
+          .chat-header { padding: 12px 16px; }
+          .chat-input-area { padding: 10px 12px 14px; }
+        }
       `}</style>
 
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "680px",
-          height: "90vh",
-          maxHeight: "780px",
-          display: "flex",
-          flexDirection: "column",
-          background: "#ffffff",
-          borderRadius: "20px",
-          border: "1px solid #e0d0f8",
-          overflow: "hidden",
-          boxShadow: "0 20px 60px rgba(106,63,171,0.12), 0 4px 16px rgba(0,0,0,0.06)",
-        }}
-      >
+      <div className="chat-card">
         {/* Header */}
         <div
+          className="chat-header"
           style={{
-            padding: "20px 24px",
             background: BRAND.primary,
             borderBottom: `1px solid ${BRAND.primaryDark}`,
             display: "flex",
@@ -144,7 +203,7 @@ export default function NutritionChat() {
         </div>
 
         {/* Messages */}
-        <div style={{ flex: 1, overflowY: "auto", padding: "14px 16px 6px", background: "#fdfbff" }}>
+        <div className="chat-messages">
           {messages.map((msg, i) => (
             <Message key={i} msg={msg} />
           ))}
@@ -154,15 +213,7 @@ export default function NutritionChat() {
 
         {/* Quick suggestions */}
         {messages.length <= 1 && (
-          <div
-            style={{
-              padding: "0 20px 12px",
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "8px",
-              background: "#fdfbff",
-            }}
-          >
+          <div className="chat-suggestions">
             {SUGGESTIONS.map((s, i) => (
               <button
                 key={i}
@@ -187,40 +238,18 @@ export default function NutritionChat() {
         )}
 
         {/* Input */}
-        <div
-          style={{
-            padding: "16px 20px",
-            borderTop: "1px solid #e0d0f8",
-            background: "#ffffff",
-            display: "flex",
-            gap: "10px",
-            alignItems: "flex-end",
-          }}
-        >
+        <div className="chat-input-area">
           <textarea
             ref={textareaRef}
+            className="chat-textarea"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Digite ingredientes ou um alimento para substituir..."
+            placeholder="Digite ingredientes ou alimento..."
             rows={1}
-            style={{
-              flex: 1,
-              background: "#f5f0ff",
-              border: "1px solid #ddd6fe",
-              borderRadius: "12px",
-              padding: "12px 14px",
-              color: "#1a0a2e",
-              fontSize: FONT_SIZE.base,
-              fontFamily: "inherit",
-              resize: "none",
-              lineHeight: "1.5",
-              maxHeight: "120px",
-              overflowY: "auto",
-            }}
             onInput={(e) => {
               e.target.style.height = "auto";
-              e.target.style.height = Math.min(e.target.scrollHeight, 120) + "px";
+              e.target.style.height = Math.min(e.target.scrollHeight, 100) + "px";
             }}
           />
           <button
