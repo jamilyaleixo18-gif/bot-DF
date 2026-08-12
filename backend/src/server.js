@@ -37,7 +37,20 @@ const ALLOWED_ORIGINS = [
   "https://danielfabiocruz.com",
   "https://www.danielfabiocruz.com",
 ];
-app.use(cors({ origin: (origin, cb) => (!origin || ALLOWED_ORIGINS.includes(origin) ? cb(null, true) : cb(new Error("CORS bloqueado"))) }));
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      if (
+        !origin ||
+        ALLOWED_ORIGINS.includes(origin) ||
+        /\.vercel\.app$/.test(origin)
+      ) {
+        return cb(null, true);
+      }
+      return cb(new Error("CORS bloqueado"));
+    },
+  })
+);
 app.use(express.json());
 
 app.get("/health", (req, res) => {
