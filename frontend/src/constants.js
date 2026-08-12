@@ -14,10 +14,12 @@ export const BRAND = {
 };
 
 export const SUGGESTIONS = [
-  "Tenho frango, brócolis e batata-doce. Que prato posso fazer?",
-  "Substituir 200g de carne bovina por quê?",
-  "Ingredientes: ovo, espinafre, azeite e alho",
-  "Substituir 1 xícara de arroz branco",
+  "Tenho ingredientes, o que faço?",
+  "Trocar minha proteína",
+  "Trocar meu carboidrato",
+  "Quero uma opção de lanche",
+  "Quero uma opção rápida",
+  "Quero comer algo doce",
 ];
 
 export const INITIAL_MESSAGE = {
